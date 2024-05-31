@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif !important;
+}
+
+header{
+    background-color: #001A23;
+    height: 65px;
+}
+
+.admin-dashboard{
+    aside{
+        background-color: #001A23;
+        display: flex;
+        justify-content: center;
+        width: 90px;
+        min-width: 90px;
+        height: calc(100vh - 65px);
+        border-top-right-radius: 8%;
+        border-bottom-right-radius: 8%;
+        box-shadow: 15px 10px 31px -11px #42445a;
+        overflow: hidden;
+        transition: width .3s ease-out;
+        text-align: center;
+        overflow: hidden;
+        ul{
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            li{
+                &:hover{
+                    background-color: #064053;
+                    transition: background-color .3s;
+                }
+                i{
+                    font-size: 1.1rem;
+                    margin-right: 8px;
+                    padding: 5px;
+                }
+                a{
+                    display: block;
+                    color: white;
+                    text-decoration: none;
+                    padding: 20px 10px;
+                    font-size: 1rem;
+                    white-space: nowrap;
+                    span{
+                        display: none;
+                        opacity: 0;
+                        animation: fadeIn 0.5s ease forwards;
+                        animation-delay: .15s;
+                    }
+                }
+            }
+        }
+        &:hover{
+            transition: width .4s ease-out;
+            width: 220px;
+            text-align: start;
+            ul{
+                li{
+                    a{
+                        i{
+                            animation: slideIn .5s ease forwards; /* Applica l'animazione per spostare il testo in modo morbido durante l'hover */
+                        }
+                        span{
+                            display: inline-block;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+        &:not(:hover){
+            transition: width .6s ease-out;
+            ul{
+                li{
+                    a{
+                        i{
+                        }
+                        span{
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-dash{
+        width: calc(100vw - 220px);
+        height: calc(100vh - 65px);
+        padding: 15px 20px;
+        input{
+            outline: none;
+            box-shadow: none;
+            &:focus{
+                border-color: #064053;
+            }
+        }
+    }
+
+    .crud-table{
+        input{
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+
+
+// keyframe
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Il testo è completamente nascosto all'inizio dell'animazione */
+    }
+    100% {
+        opacity: 1; /* Alla fine dell'animazione, il testo è completamente visibile */
+    }
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(15px); /* Sposta il testo verso sinistra */
+        // opacity: 0; /* Il testo è completamente nascosto all'inizio dell'animazione */
+    }
+    100% {
+        transform: translateX(0); /* Il testo ritorna nella posizione originale */
+        // opacity: 1; /* Alla fine dell'animazione, il testo è completamente visibile */
+    }
+}
+
+

@@ -58,6 +58,7 @@
             </thead>
             <tbody class="table-group-divider">
                 @foreach ($projects as $project)
+                    {{-- @dump($project->technologies) --}}
                     <tr class="py-5">
                         <td>
                             {{-- update --}}
@@ -71,7 +72,6 @@
                         <td class="type">{{ $project->type ? $project->type->title : 'N/A' }}</td>
                         <td>{{ Help::formatDate($project->update_at) }}</td>
                         <td class="w-25">
-                            {{-- @dump($project) --}}
                             @forelse ($project->technologies as $technology)
                                 <span class="badge rounded-pill text-bg-warning">{{ $technology->title }}</span>
                             @empty

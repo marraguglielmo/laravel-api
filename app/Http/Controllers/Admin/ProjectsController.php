@@ -37,26 +37,23 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
+
+
         $form_data['slug'] = Help::generateSlug($form_data['title'], Project::class);
 
         $new_project = new Project();
         $new_project->fill($form_data);
         $new_project->save();
 
+        // l'associazione m,many to many deve avvenire dopo il salvataggio del dato nel db
+
+        // controllo sulle technologies
+        if (array_key_exists('technologies', $form_data)) {
+            $new_project->technologies()->attach($form_data['technologies']);
+        }
+
+
         return redirect()->route('admin.projects.index', $new_project)->with('success', 'Il progetto è stato inserito correttamente');
-
-        // $exist = Project::where('title', $request->title)->first();
-
-        // if ($exist) {
-        //     return redirect()->route('admin.projects.index')->with('error', 'Il progetto è già stato inserito');
-        // } else {
-        //     $new_project = new Project();
-        //     $new_project->title = $request->title;
-        //     $new_project->languages = $request->languages;
-        //     $new_project->slug = Help::generateSlug($new_project->title, Project::class);
-        //     $new_project->save();
-        //     return redirect()->route('admin.projects.index')->with('success', 'Il progetto è stato inserito correttamente');
-        // }
     }
 
     /**

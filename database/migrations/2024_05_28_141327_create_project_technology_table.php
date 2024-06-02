@@ -21,13 +21,15 @@ return new class extends Migration
                 ->on('projects')
                 ->cascadeOnDelete(); //nel momento in cui viene eliminato un progetto o una tecnologia viene cancellato il record della relazione
 
-            // relazione con technologies
+            // relazione con projects
             $table->unsignedBigInteger('technology_id');
             // FK
             $table->foreign('technology_id')
                 ->references('id')
                 ->on('technologies')
-                ->cascadeOnDelete();
+                ->cascadeOnDelete(); //nel momento in cui viene eliminato un progetto o una tecnologia viene cancellato il record della relazione
+
+
         });
     }
 

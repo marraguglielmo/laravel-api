@@ -26,7 +26,6 @@ class Project extends Model
         'title',
         'type_id',
         'slug',
-        'languages',
         'github_url'
     ];
 }

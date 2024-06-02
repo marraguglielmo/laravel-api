@@ -11,7 +11,11 @@
         <p><strong>URL GitHub: </strong> <a href="{{ $project->github_url }}"
                 target="_blank">{{ $project->github_url ? $project->github_url : 'N/A' }}</a>
         </p>
-        <p><strong>Linguaggi utilizzati:</strong> {{ $project->languages }}</p>
+        <p><strong>Linguaggi utilizzati:</strong>
+            @foreach ($project->technologies as $technology)
+                <span class="badge text-bg-warning">{{ $technology->title }}</span>
+            @endforeach
+        </p>
         <p><strong>Tipo di progetto:</strong> {{ $project->type->title }} </p>
     </div>
 @endsection

@@ -18,7 +18,7 @@ class TechnologyTableSeeder extends Seeder
         foreach ($data as $item) {
             $new_item = new Technology();
             $new_item->title = $item;
-            $new_item->slug = Help::generateSlug($new_item->title, Technology::class);
+            $new_item->slug = Help::generateSlug($item, Technology::class);
             $new_item->save();
         }
     }

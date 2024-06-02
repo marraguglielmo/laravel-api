@@ -46,13 +46,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="technologies" class="form-label">Tecnologie utilizzate: </label>
+                    <label class="form-label">Tecnologie utilizzate: </label>
                     <div class="btn-group btn-group-sm" role="group">
                         @foreach ($technologies as $technology)
-                            <input name="technologies" type="checkbox" class="btn-check" autocomplete="off"
-                                id="tech_{{ $technology->id }}" value="{{ $technology->id }}">
+                            <input name="technologies[]" type="checkbox" class="btn-check" autocomplete="off"
+                                id="technology_{{ $technology->id }}" value="{{ $technology->id }}">
                             <label class="btn btn-outline-success fw-semibold border-2"
-                                for="tech_{{ $technology->id }}">{{ $technology->title }}</label>
+                                for="technology_{{ $technology->id }}">{{ $technology->title }}</label>
                         @endforeach
                     </div>
                     @error('technologies')

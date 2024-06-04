@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\PageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects', [PageController::class, 'index']);
+Route::get('/post-by-slug/{slug}', [PageController::class, 'getProjectBySlug']);

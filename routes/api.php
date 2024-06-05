@@ -17,4 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/projects', [PageController::class, 'index']);
-Route::get('/post-by-slug/{slug}', [PageController::class, 'getProjectBySlug']);
+Route::get('/technologies', [PageController::class, 'getTechnologies']);
+Route::get('/types', [PageController::class, 'getTypes']);
+Route::get('/project-by-slug/{slug}', [PageController::class, 'getProjectBySlug']);

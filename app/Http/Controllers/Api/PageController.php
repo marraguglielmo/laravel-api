@@ -29,8 +29,6 @@ class PageController extends Controller
         return response()->json($types);
     }
 
-
-
     public function getProjectBySlug($slug)
     {
         $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
@@ -41,5 +39,17 @@ class PageController extends Controller
         }
 
         return response()->json(compact('success', 'project'));
+    }
+
+    public function getProjectByTechnology($slug)
+    {
+        $technologies = Technology::where('slug', $slug)->with('projects')->first();
+        return response()->json($technologies);
+    }
+
+    public function getProjectByType($slug)
+    {
+        $types = Type::where('slug', $slug)->with('projects')->first();
+        return response()->json($types);
     }
 }
